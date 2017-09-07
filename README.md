@@ -1,1 +1,1 @@
-# todos Easy ToDoList in Ionic
+Easy ToDoList in Ionic
