@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title >
+      ToDo's App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let item of todolst;let i=index;" (click)="clickItem(i)">
+      {{ item.todo }}
+
+      <ion-icon name="checkmark-circle" [hidden]="!item.status"></ion-icon>
+      <ion-icon name="close" [hidden]="item.status"></ion-icon>
+
+      <!-- ion-checkbox placeholder="Status" [(ngModel)]="item.status"></ion-checkbox -->
+
+      </ion-item>
+  </ion-list>
+
+    <div class="list">
+      <hr>
+      <label class="item item-input">
+        New Task:
+
+        <ion-input type="text" placeholder="..." [(ngModel)]="todotxt">
+
+        </ion-input>
+      </label>
+    </div>
+    <div class="padding">
+      <button ion-button color="primary" class="button button-md button-positive" (click)=doaddtask(todotxt)>create Task</button>
+      <button ion-button color="primary" class="button button-md button-positive" (click)=doclearlist()>delete List</button>
+   </div>
+
+
+</ion-content>
