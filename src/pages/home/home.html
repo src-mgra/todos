@@ -13,7 +13,8 @@
       {{ item.todo }}
 
       <ion-icon name="checkmark-circle" [hidden]="!item.status"></ion-icon>
-      <ion-icon name="close" [hidden]="item.status"></ion-icon>
+      <ion-icon name="close" [hidden]="item.status"></ion-icon><br>
+      >> {{item.content}}
 
       <!-- ion-checkbox placeholder="Status" [(ngModel)]="item.status"></ion-checkbox -->
 
