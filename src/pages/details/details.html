@@ -17,8 +17,11 @@
   <ion-list>
   <ion-item-group *ngFor="let item of details;let i=index;" (click)="clickItem(i)">
     <ion-item-divider color="primary">Aufgabe</ion-item-divider>
-     <ion-input placeholder="Aufgabe" [(ngModel)]="item.todo"></ion-input>
-     <ion-input placeholder="Inhalt" [(ngModel)]="item.content"></ion-input>
+     <ion-input placeholder="Task" [(ngModel)]="item.todo"></ion-input>
+    <hr>
+    Content:
+     <ion-input placeholder="Content" [(ngModel)]="item.content"></ion-input>
+    Status:
     <ion-checkbox placeholder="Status" [(ngModel)]="item.status"></ion-checkbox>
   </ion-item-group>
   </ion-list>

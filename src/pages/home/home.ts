@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 interface  todotype {
   todo: string;
@@ -14,13 +15,77 @@ interface  todotype {
 })
 export class HomePage {
  public  todotxt: string;
-  public todolst: todotype[] = [{todo:'Task1',content:'',status:false},{todo:'Task2',content:'',status:false}];
+  public todolst: todotype[] = [{todo:'Task1',content:'',status:false},{todo:'Task2',content:'',status:false},
+    {todo:'Task3',content:'',status:false},{todo:'Task4',content:'',status:false}];
 
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController,private storage: Storage) {
 
+    // Load Tasks
+    this.loadStorage()
 
   }
 
+  saveStorage(): void {
+    try {
+      this.storage.set('Task1_a1', this.todolst[0].todo);
+      this.storage.set('Task1_a2', this.todolst[0].content);
+      this.storage.set('Task1_a3', this.todolst[0].status);
+      this.storage.set('Task2_a1', this.todolst[1].todo);
+      this.storage.set('Task2_a2', this.todolst[1].content);
+      this.storage.set('Task2_a3', this.todolst[1].status);
+      this.storage.set('Task3_a1', this.todolst[2].todo);
+      this.storage.set('Task3_a2', this.todolst[2].content);
+      this.storage.set('Task3_a3', this.todolst[2].status);
+      this.storage.set('Task4_a1', this.todolst[3].todo);
+      this.storage.set('Task4_a2', this.todolst[3].content);
+      this.storage.set('Task4_a3', this.todolst[3].status);
+    } catch (e) {
+      console.log('save entry error');
+    }
+  }
+
+  loadStorage(): void {
+    try {
+      this.storage.get('Task1_a1').then(task => {
+        this.todolst[0].todo = task;
+      });
+      this.storage.get('Task1_a2').then(task => {
+        this.todolst[0].content = task;
+      });
+      this.storage.get('Task1_a3').then(task => {
+        this.todolst[0].status = task;
+      });
+      this.storage.get('Task2_a1').then(task => {
+        this.todolst[1].todo = task;
+      });
+      this.storage.get('Task2_a2').then(task => {
+        this.todolst[1].content = task;
+      });
+      this.storage.get('Task2_a3').then(task => {
+        this.todolst[1].status = task;
+      });
+      this.storage.get('Task3_a1').then(task => {
+        this.todolst[2].todo = task;
+      });
+      this.storage.get('Task3_a2').then(task => {
+        this.todolst[2].content = task;
+      });
+      this.storage.get('Task3_a3').then(task => {
+        this.todolst[2].status = task;
+      });
+      this.storage.get('Task4_a1').then(task => {
+        this.todolst[3].todo = task;
+      });
+      this.storage.get('Task4_a2').then(task => {
+        this.todolst[3].content = task;
+      });
+      this.storage.get('Task4_a3').then(task => {
+        this.todolst[3].status = task;
+      });
+    } catch (e) {
+      console.log('no entries found!');
+    }
+  }
 
   public doaddtask(todo: string) {
     var entry: String;
