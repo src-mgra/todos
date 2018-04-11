@@ -1,4 +1,4 @@
-Easy ToDoList in Ionic
+# Easy ToDoList in Ionic
 
 
 Shows navigation with NavCtrl and use of AlertCtrl for dialogs.
@@ -9,7 +9,7 @@ reference at:
 
 https://ionicframework.com/docs/storage/
 
-build for android:
+## build for android:
 
 https://ionicframework.com/docs/cli/cordova/build/
 
